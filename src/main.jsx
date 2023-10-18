@@ -8,6 +8,9 @@ import Addpro from "./components/AddPro/Addpro";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import AuthProvider from "./components/Provider/Provider";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Mycart from "./components/Mycart/Mycart";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +22,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addproduct",
-        element: <Addpro></Addpro>,
+        element: (
+          <PrivateRoute>
+            <Addpro></Addpro>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/mycart",
+        element: (
+          <PrivateRoute>
+            <Mycart></Mycart>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

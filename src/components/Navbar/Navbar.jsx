@@ -1,40 +1,42 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/Provider";
+import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { NavLink, Link } from "react-router-dom";
 const Navbar = () => {
-  //     const { user, logOut } = useContext(AuthContext);
-  //   const handleLogOut = () => {
-  //     logOut()
-  //       .then(() => toast("logged out successfully"))
-  //       .catch((error) => console.error(error));
-  //   };
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => toast("logged out successfully"))
+      .catch((error) => console.error(error));
+  };
   const navlinks = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      {/* {!user && (
-        <> */}
-      <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
-      <li>
-        <NavLink to="/register">Register</NavLink>
-      </li>
-      {/* </>
-      )}{" "} */}
-      {/* {user && (
-        <> */}{" "}
-      <li>
-        <NavLink to="/addproduct">Add Product</NavLink>
-      </li>
-      <li>
-        <NavLink to="/bookings">My Cart</NavLink>
-      </li>
-      <li>
-        <NavLink to="/profile">Profile</NavLink>
-      </li>
-      {/* </>
-      )} */}
+      {!user && (
+        <>
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
+        </>
+      )}{" "}
+      {user && (
+        <>
+          {" "}
+          <li>
+            <NavLink to="/addproduct">Add Product</NavLink>
+          </li>
+          <li>
+            <NavLink to="/mycart">My Cart</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -74,7 +76,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navlinks}</ul>
         </div>
         <div className="navbar-end gap-1 flex flex-col-reverse pl-10 pt- md:flex-row md:pl-0 md:pt-0">
-          {/* {user ? (
+          {user ? (
             <>
               <span>
                 <img
@@ -91,10 +93,7 @@ const Navbar = () => {
             <Link to="/login">
               <button className="btn btn-sm">Login</button>
             </Link>
-          )} */}
-          <Link to="/login">
-            <button className="btn btn-sm">Login</button>
-          </Link>
+          )}
         </div>
       </div>
     </div>
