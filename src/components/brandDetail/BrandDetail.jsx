@@ -1,10 +1,16 @@
 import React from "react";
-
+import { useLoaderData, useParams } from "react-router-dom";
+import BrandDetailscard from "../BrandDetailscard/BrandDetailscard";
 const BrandDetail = () => {
- 
-  const products=useloaderData();
-  
-  const { _id } = useParams();
+  const products = useLoaderData();
+  const { brand_name } = useParams();
+  console.log(brand_name);
+
+  const productdetail = products.filter(
+    (product) => product.brand == brand_name
+  );
+  console.log(productdetail);
+  //   const { _id } = useParams();
   return (
     <div>
       <div>
@@ -19,8 +25,11 @@ const BrandDetail = () => {
           </div>
 
           <div className=" container mx-auto flex flex-row flex-wrap gap-5 justify-center ">
-            {brand.map((brand) => (
-              <Brandcard key={brand.id} brand={brand}></Brandcard>
+            {productdetail.map((brands) => (
+              <BrandDetailscard
+                key={brands.name}
+                brands={brands}
+              ></BrandDetailscard>
             ))}
           </div>
         </div>

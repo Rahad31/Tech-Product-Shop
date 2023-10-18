@@ -4,7 +4,7 @@ const Brandcard = ({ brand }) => {
   const { id, brand_name, brand_image } = brand;
   return (
     <div>
-      <Link to={`/Servicecard/${id}`}>
+      <Link to={`/brandDetails/${brand_name}`}>
         <div className="flex justify-center items-center   bg-slate-200 rounded-md ">
           <div className="h-[350px] w-[239px] rounded-md flex flex-col gap-2 border-2 border-black">
             <img
