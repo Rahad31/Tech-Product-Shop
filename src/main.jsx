@@ -10,7 +10,7 @@ import Register from "./components/Register/Register";
 import AuthProvider from "./components/Provider/Provider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Mycart from "./components/Mycart/Mycart";
-
+import Error from "./components/Error/Error";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/*",
+        element: <Error></Error>,
       },
     ],
   },
