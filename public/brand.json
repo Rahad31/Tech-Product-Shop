@@ -1,0 +1,33 @@
+ [ 
+    { 
+        "id":1,
+      "brand_name": "Apple",
+      "brand_image": "https://i.ibb.co/94CG5Dw/b49508-75eee22982fb45bca1f2e09bd74606a8-mv2.jpg"
+    },
+    {
+      "id": 2,
+      "brand_name": "Samsung",
+      "brand_image": "https://i.ibb.co/0FssW46/samsung-trademark-deal.jpg"
+    },
+    {
+      "id": 3,
+      "brand_name": "Sony",
+      "brand_image": "https://i.ibb.co/mFt2RJC/Sony-logo.png"
+    },
+    {
+      "id": 4,
+      "brand_name": "Google",
+      "brand_image": "https://i.ibb.co/dKY1dH1/a910d418-7123-4bc4-aa3b-ef7e25e74ae6.jpg"
+    },
+    {
+      "id": 5,
+      "brand_name": "Asus",
+      "brand_image": "https://i.ibb.co/ynp63DT/424-asus.jpg"
+    },
+    {
+      "id": 6,
+      "brand_name": "Acer",
+      "brand_image": "https://i.ibb.co/H4NdZJh/Acer-Logo.png"
+    }
+  ]
+

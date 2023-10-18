@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "pro_name": "Google Pixel 7a",
+    "brands": "Google",
+    "pro_image": "https://i.ibb.co/HYqhQgW/google-pixel-7a-1.jpg",
+    "pro_des": "Glass front (Gorilla Glass 3), aluminum frame, plastic back"
+  },
+  {
+    "id": 2,
+    "pro_name": "Acer Predator 16",
+    "brands": "Acer",
+    "pro_image": "https://i.ibb.co/BGPc13x/16-ph16-71-70l4-500x500.webp",
+    "pro_des": "Core i7 13th Gen Gaming Laptop"
+  },
+  {
+    "id": 3,
+    "pro_name": "MacBook Air 13",
+    "brands": "Apple",
+    "pro_image": "https://i.ibb.co/ncvc9ZM/mba-digitalmat-gallery-1-202111.png",
+    "pro_des": "Apple M1 chip delivers powerful CPU, GPU"
+  },
+  {
+    "id": 4,
+    "pro_name": "Samsung S23 Ultra",
+    "brands": "Samsung",
+    "pro_image": "https://i.ibb.co/Jy439ZX/phantomblack2.png",
+    "pro_des": "QHD+ Dynamic AMOLED 2X (1~120Hz)"
+  },
+  {
+    "id": 5,
+    "pro_name": "Galaxy Z Fold5",
+    "brands": "Samsung",
+    "pro_image": "https://i.ibb.co/SsHN82r/default-HOME-Q5-MX-KV-1440-X810-pc.jpg",
+    "pro_des": "PC-like power. Now in your pocket"
+  }
+]
