@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/Provider";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import AuthProvider from "../Provider/Provider";
 const Login = () => {
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
@@ -94,7 +96,7 @@ const Login = () => {
           </div>
         </div>
       </div>{" "}
-      <ToastContainer />;
+      <ToastContainer />
     </div>
   );
 };
