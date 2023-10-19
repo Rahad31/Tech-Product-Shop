@@ -14,7 +14,7 @@ const BrandDetail = () => {
   );
   console.log(productdetail);
   if (productdetail.length < 1) {
-    Toast("No Item Found");
+    toast("No Item Found");
   }
   return (
     <div>
@@ -92,8 +92,7 @@ const BrandDetail = () => {
           </div>
 
           <div className=" container mx-auto flex flex-row flex-wrap gap-5 justify-center ">
-            {
-            productdetail.map((brands) => (
+            {productdetail.map((brands) => (
               <BrandDetailscard
                 key={brands.name}
                 brands={brands}

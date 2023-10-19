@@ -1,13 +1,24 @@
 import React from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams, Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import { saveproduct } from "../Storage/Storage";
+import { AuthContext } from "../Provider/Provider";
+import { useContext } from "react";
 
 const Details = () => {
   const products = useLoaderData();
   const { _id } = useParams();
   console.log(_id);
-
+  const idInt = _id;
+  const { user } = useContext(AuthContext);
+  let User = user.uid;
   const productdetail = products.find((product) => product._id == _id);
   console.log(productdetail);
+  const handleCart = () => {
+    saveproduct(idInt, User);
+    toast("Successfully Added to Cart");
+  };
   return (
     <div>
       <div className="flex  flex-col justify-center items-center   rounded-md ">
@@ -35,10 +46,15 @@ const Details = () => {
             <h3 className="text-center text-[#120f0a] text-normal font-semibold">
               {productdetail.description}
             </h3>{" "}
-            <button className="btn btn-error mx-4 mb-4">Add To Cart</button>
+            <Link to="/mycart">
+              <button onClick={handleCart} className="btn btn-error mx-4 mb-4">
+                Add To Cart
+              </button>
+            </Link>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
