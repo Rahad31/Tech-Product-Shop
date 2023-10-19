@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BrandDetailscard = ({ brands }) => {
   const { _id, image, name, brand, type, price, description, rating } = brands;
@@ -26,7 +27,9 @@ const BrandDetailscard = ({ brands }) => {
             <h3 className="text-center text-[#120f0a] text-normal font-semibold">
               Rating: {rating}
             </h3>{" "}
-            <button className="btn btn-error mx-4">Details</button>
+            <Link to={`/Details/${_id}`}>
+              <button className="btn btn-error mx-4">Details</button>
+            </Link>
             <button className="btn btn-error mx-4">Update</button>
           </div>
         </div>

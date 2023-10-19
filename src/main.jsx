@@ -12,6 +12,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Mycart from "./components/Mycart/Mycart";
 import Error from "./components/Error/Error";
 import BrandDetail from "./components/brandDetail/brandDetail";
+import Details from "./components/Details/Details";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,13 +39,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/brandDetails/:brand_name",
+        path: "/Details/:_id",
         loader: () => fetch("http://localhost:5000/product"),
         element: (
-         
-            <BrandDetail></BrandDetail>
-         
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
         ),
+      },
+      {
+        path: "/brandDetails/:brand_name",
+        loader: () => fetch("http://localhost:5000/product"),
+        element: <BrandDetail></BrandDetail>,
       },
       {
         path: "/login",

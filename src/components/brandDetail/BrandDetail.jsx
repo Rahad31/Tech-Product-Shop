@@ -1,6 +1,9 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import BrandDetailscard from "../BrandDetailscard/BrandDetailscard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const BrandDetail = () => {
   const products = useLoaderData();
   const { brand_name } = useParams();
@@ -10,7 +13,9 @@ const BrandDetail = () => {
     (product) => product.brand == brand_name
   );
   console.log(productdetail);
-
+  if (productdetail.length < 1) {
+    Toast("No Item Found");
+  }
   return (
     <div>
       <div>
@@ -75,7 +80,6 @@ const BrandDetail = () => {
           </div>
         </div>
       </div>
-
       <div>
         <div className="text-center flex flex-col justify-center items-center gap-4 mb-20">
           <h1 className="text-4xl font-bold text-[#EAA334]">PRODUCTS</h1>
@@ -88,7 +92,8 @@ const BrandDetail = () => {
           </div>
 
           <div className=" container mx-auto flex flex-row flex-wrap gap-5 justify-center ">
-            {productdetail.map((brands) => (
+            {
+            productdetail.map((brands) => (
               <BrandDetailscard
                 key={brands.name}
                 brands={brands}
@@ -97,6 +102,7 @@ const BrandDetail = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
