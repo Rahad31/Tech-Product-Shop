@@ -30,7 +30,7 @@ const BrandDetailscard = ({ brands }) => {
             <Link to={`/Details/${_id}`}>
               <button className="btn btn-error mx-4">Details</button>
             </Link>
-            <button className="btn btn-error mx-4">Update</button>
+            <Link to={`/updateproduct/${_id}`}><button className="btn btn-error mx-4">Update</button></Link>
           </div>
         </div>
       </div>

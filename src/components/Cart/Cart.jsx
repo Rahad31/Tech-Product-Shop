@@ -1,7 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+
+import "sweetalert2/src/sweetalert2.scss";
 const Cart = ({ product }) => {
   const { _id, image, name, brand, type, price, description, rating } = product;
+
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log("done");
+        fetch(`http://localhost:5000/mycarts/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              // const remaining = displayproduct.filter(
+              //   (load) => load._id !== _id
+              // );
+              // setload(remaining);
+              window.location.reload();
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="flex justify-center items-center   rounded-md ">
@@ -26,7 +62,12 @@ const Cart = ({ product }) => {
             <h3 className="text-center text-[#120f0a] text-normal font-semibold">
               Rating: {rating}
             </h3>{" "}
-            <button className="btn btn-error mx-4">Delete</button>
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-error mx-4"
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>

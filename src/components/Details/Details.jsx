@@ -8,16 +8,42 @@ import { useContext } from "react";
 
 const Details = () => {
   const products = useLoaderData();
+  // const { image, name, brand, type, price, description, rating } = products;
+
   const { _id } = useParams();
-  console.log(_id);
+  console.log(name);
   const idInt = _id;
   const { user } = useContext(AuthContext);
   let User = user.uid;
   const productdetail = products.find((product) => product._id == _id);
-  console.log(productdetail);
+  // console.log(productdetail);
   const handleCart = () => {
-    saveproduct(idInt, User);
-    toast("Successfully Added to Cart");
+    // saveproduct(idInt, User);
+    // // toast("Successfully Added to Cart");
+
+    const image = productdetail.image;
+    const name = productdetail.name;
+    const brand = productdetail.brand;
+    const type = productdetail.type;
+    const price = productdetail.price;
+    const description = productdetail.description;
+    const rating = productdetail.rating;
+    const cart = { image, name, brand, type, price, description, rating };
+    console.log(cart);
+    fetch(`http://localhost:5000/mycarts`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cart),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          toast("Sucessfully Added to Cart");
+        }
+      });
   };
   return (
     <div>

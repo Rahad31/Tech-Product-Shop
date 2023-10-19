@@ -30,8 +30,8 @@ const Mycart = () => {
   return (
     <div>
       <div className="container mx-auto flex flex-row flex-wrap gap-5 justify-center items-center my-10">
-        {displayproduct.map((product) => (
-          <Cart key={_id} product={product}></Cart>
+        {productcard.map((product) => (
+          <Cart key={product._id} product={product}></Cart>
         ))}
       </div>
     </div>

@@ -13,6 +13,7 @@ import Mycart from "./components/Mycart/Mycart";
 import Error from "./components/Error/Error";
 import BrandDetail from "./components/brandDetail/brandDetail";
 import Details from "./components/Details/Details";
+import Update from "./components/Update/Update";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,10 +33,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/mycart",
-        loader: () => fetch("http://localhost:5000/product"),
+        loader: () => fetch("http://localhost:5000/mycarts"),
         element: (
           <PrivateRoute>
             <Mycart></Mycart>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateproduct/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <Update></Update>
           </PrivateRoute>
         ),
       },
