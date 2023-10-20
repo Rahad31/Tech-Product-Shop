@@ -1,9 +1,16 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import Swal from "sweetalert2/dist/sweetalert2.js";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 import "sweetalert2/src/sweetalert2.scss";
+//  Swal.fire({
+//    position: "center",
+//    icon: "success",
+//    title: "Succeessfully Updated",
+//    showConfirmButton: false,
+//    timer: 2000,
+//  });
 const Update = () => {
   const navigate = useNavigate();
   const brands = useLoaderData();
@@ -46,7 +53,7 @@ const Update = () => {
             icon: "success",
             title: "Succeessfully Updated",
             showConfirmButton: false,
-            timer: 5000,
+            timer: 2000,
           });
           navigate("/");
         }

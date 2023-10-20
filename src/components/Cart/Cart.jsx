@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 
 import "sweetalert2/src/sweetalert2.scss";
-const Cart = ({ product }) => {
+const Cart = ({ product, Product, setProduct }) => {
   const { _id, image, name, brand, type, price, description, rating } = product;
 
   const handleDelete = (_id) => {
@@ -27,11 +27,10 @@ const Cart = ({ product }) => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-              // const remaining = displayproduct.filter(
-              //   (load) => load._id !== _id
-              // );
-              // setload(remaining);
-              window.location.reload();
+              const remaining = Product.filter((load) => load._id !== _id);
+              setProduct(remaining);
+              console.log(remaining);
+              // window.location.reload();
             }
           });
       }
@@ -60,14 +59,15 @@ const Cart = ({ product }) => {
               Type: {type}
             </h3>
             <h3 className="text-center text-[#120f0a] text-normal font-semibold">
-              Rating: {rating}
+              Rating: {rating}/5
             </h3>{" "}
-            <button
+            <div className="flex justify-center items-center flex-grow"><button
               onClick={() => handleDelete(_id)}
-              className="btn btn-error mx-4"
+              className=" btn btn-error w-[100px]"
             >
               Delete
-            </button>
+            </button></div>
+            
           </div>
         </div>
       </div>

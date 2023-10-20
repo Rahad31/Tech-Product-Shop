@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { saveproduct } from "../Storage/Storage";
 import { AuthContext } from "../Provider/Provider";
 import { useContext } from "react";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 const Details = () => {
   const products = useLoaderData();
@@ -41,19 +43,33 @@ const Details = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          toast("Sucessfully Added to Cart");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Added To Cart",
+            showConfirmButton: false,
+            timer: 2000,
+          });
         }
       });
   };
   return (
     <div>
-      <div className="flex  flex-col justify-center items-center   rounded-md ">
-        <div className="h-auto w-auto rounded-md flex flex-col gap-2  border-black  bg-slate-200">
+      <div className="flex  flex-col gap-1 justify-center items-center   rounded-md ">
+        <h1 className="text-4xl font-bold text-[#EAA334]">Details</h1>
+        <h1 className="text-xl">A Complete Electronics Store</h1>
+        <div
+          className="w-1/12
+       -bold mb-4"
+        >
+          <hr></hr>
+        </div>
+        <div className="h-auto w-auto  rounded-md flex flex-col md:flex-row gap-2  border-black  bg-slate-200">
           <img
             src={productdetail.image}
-            className="h-[500px] w-[400px] m-2 rounded-md p-2 bg-white"
+            className="h-auto w-[400px] m-2 rounded-md p-2 bg-white"
           ></img>
-          <div className="flex flex-col gap-2 ">
+          <div className="flex flex-col gap-2 p-2">
             <h3 className="text-center pt-2 text-[#120f0a] text-xl font-semibold">
               {productdetail.name}
             </h3>
@@ -67,16 +83,23 @@ const Details = () => {
               Type: {productdetail.type}
             </h3>
             <h3 className="text-center text-[#120f0a] text-normal font-semibold">
-              Rating: {productdetail.rating}
+              Rating: {productdetail.rating}/5
             </h3>
-            <h3 className="text-center text-[#120f0a] text-normal font-semibold">
+            <h3 className="text-center w-[200px] text-[#120f0a] text-normal font-semibold p-2">
+              Details:<br></br>
               {productdetail.description}
-            </h3>{" "}
-            <Link to="/mycart">
-              <button onClick={handleCart} className="btn btn-error mx-4 mb-4">
-                Add To Cart
-              </button>
-            </Link>
+            </h3>
+            <div className="flex justify-center items-center md:flex-grow md:mt-48">
+              {" "}
+              <Link to="/">
+                <button
+                  onClick={handleCart}
+                  className="btn btn-error mx-4 mb-4"
+                >
+                  Add To Cart
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ const Addpro = () => {
     const rating = form.pro_rat.value;
     const newProduct = { image, name, brand, type, price, description, rating };
     console.log(newProduct);
-    // form.reset();
+    form.reset();
     // send data
     fetch(`http://localhost:5000/product`, {
       method: "POST",

@@ -3,6 +3,8 @@ import { useLoaderData, useParams } from "react-router-dom";
 import BrandDetailscard from "../BrandDetailscard/BrandDetailscard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 const BrandDetail = () => {
   const products = useLoaderData();
@@ -14,12 +16,18 @@ const BrandDetail = () => {
   );
   console.log(productdetail);
   if (productdetail.length < 1) {
-    toast("No Item Found");
+    Swal.fire({
+      position: "center",
+      icon: "info",
+      title: "No Product Found",
+      showConfirmButton: false,
+      timer: 2000,
+    });
   }
   return (
     <div>
       <div>
-        <div className="container mx-auto ">
+        <div className="container mx-auto p-2 ">
           <div className="  carousel w-full my-10  h-[500px]">
             <div id="slide1" className="carousel-item relative w-full">
               <img
@@ -80,25 +88,32 @@ const BrandDetail = () => {
           </div>
         </div>
       </div>
+
       <div>
         <div className="text-center flex flex-col justify-center items-center gap-4 mb-20">
           <h1 className="text-4xl font-bold text-[#EAA334]">PRODUCTS</h1>
-          <h1 className="text-xl">A complete electronics store</h1>
+          <h1 className="text-xl">A Complete Electronics Store</h1>
           <div
             className="w-1/12
        -bold"
           >
             <hr></hr>
           </div>
-
-          <div className=" container mx-auto flex flex-row flex-wrap gap-5 justify-center ">
-            {productdetail.map((brands) => (
-              <BrandDetailscard
-                key={brands.name}
-                brands={brands}
-              ></BrandDetailscard>
-            ))}
-          </div>
+          {productdetail.length ? (
+            <div className=" container mx-auto flex flex-row flex-wrap gap-5 justify-center ">
+              {productdetail.map((brands) => (
+                <BrandDetailscard
+                  key={brands.name}
+                  brands={brands}
+                ></BrandDetailscard>
+              ))}
+            </div>
+          ) : (
+            <img
+              className="flex justify-center items-center"
+              src="https://i.ibb.co/6gvt7Nr/no-products.jpg"
+            ></img>
+          )}
         </div>
       </div>
       <ToastContainer />

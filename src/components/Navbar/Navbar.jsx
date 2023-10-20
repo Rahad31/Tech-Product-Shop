@@ -83,7 +83,7 @@ const Navbar = () => {
               {navlinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-3xl">
+          <a href="/" className="btn btn-ghost normal-case text-3xl">
             <img src="https://i.ibb.co/jznMvyw/logo.png"></img>
             <span className="text-[#EAA334] ">TECH</span> BD
           </a>
