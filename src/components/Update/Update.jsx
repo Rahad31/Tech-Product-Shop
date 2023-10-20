@@ -37,13 +37,16 @@ const Update = () => {
     console.log(upProduct);
     // form.reset();
     // send data
-    fetch(`http://localhost:5000/product/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(upProduct),
-    })
+    fetch(
+      `https://techbd-d3hhwjy5m-rahads-projects.vercel.app/product/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(upProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

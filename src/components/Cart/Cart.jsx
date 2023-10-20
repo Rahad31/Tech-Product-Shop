@@ -19,9 +19,12 @@ const Cart = ({ product, Product, setProduct }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log("done");
-        fetch(`http://localhost:5000/mycarts/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://techbd-d3hhwjy5m-rahads-projects.vercel.app/mycarts/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -61,13 +64,14 @@ const Cart = ({ product, Product, setProduct }) => {
             <h3 className="text-center text-[#120f0a] text-normal font-semibold">
               Rating: {rating}/5
             </h3>{" "}
-            <div className="flex justify-center items-center flex-grow"><button
-              onClick={() => handleDelete(_id)}
-              className=" btn btn-error w-[100px]"
-            >
-              Delete
-            </button></div>
-            
+            <div className="flex justify-center items-center flex-grow">
+              <button
+                onClick={() => handleDelete(_id)}
+                className=" btn btn-error w-[100px]"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       </div>

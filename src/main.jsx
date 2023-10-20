@@ -33,7 +33,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/mycart",
-        loader: () => fetch("http://localhost:5000/mycarts"),
+        loader: () =>
+          fetch("https://techbd-d3hhwjy5m-rahads-projects.vercel.app/mycarts"),
         element: (
           <PrivateRoute>
             <Mycart></Mycart>
@@ -43,7 +44,9 @@ const router = createBrowserRouter([
       {
         path: "/updateproduct/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params.id}`),
+          fetch(
+            `https://techbd-d3hhwjy5m-rahads-projects.vercel.app/product/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <Update></Update>
@@ -52,7 +55,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/Details/:_id",
-        loader: () => fetch("http://localhost:5000/product"),
+        loader: () =>
+          fetch("https://techbd-d3hhwjy5m-rahads-projects.vercel.app/product"),
         element: (
           <PrivateRoute>
             <Details></Details>
@@ -61,7 +65,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/brandDetails/:brand_name",
-        loader: () => fetch("http://localhost:5000/product"),
+        loader: () =>
+          fetch("https://techbd-d3hhwjy5m-rahads-projects.vercel.app/product"),
         element: <BrandDetail></BrandDetail>,
       },
       {

@@ -1,8 +1,10 @@
-# React + Vite
+# TECH BD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features:
+• User can add product after login
+• User can update product after login
+• User can delete choosed product any time from my cart
+• Dark & light mode available in navbar for user's comfort
+• User can also login by third party googlelogin.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Client-side live link : https://tech-bd-7342b.web.app/

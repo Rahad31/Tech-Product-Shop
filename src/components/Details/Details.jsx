@@ -32,7 +32,7 @@ const Details = () => {
     const rating = productdetail.rating;
     const cart = { image, name, brand, type, price, description, rating };
     console.log(cart);
-    fetch(`http://localhost:5000/mycarts`, {
+    fetch(`https://techbd-d3hhwjy5m-rahads-projects.vercel.app/mycarts`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

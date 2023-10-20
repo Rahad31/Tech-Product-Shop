@@ -17,7 +17,7 @@ const Addpro = () => {
     console.log(newProduct);
     form.reset();
     // send data
-    fetch(`http://localhost:5000/product`, {
+    fetch(`https://techbd-d3hhwjy5m-rahads-projects.vercel.app/product`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
