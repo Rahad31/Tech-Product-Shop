@@ -1,4 +1,4 @@
-# TECH BD
+# TECH BD (Online Tech product Shop)
 
 live link : https://tech-bd-7342b.web.app/
 
